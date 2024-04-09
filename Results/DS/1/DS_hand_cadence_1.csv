@@ -1,0 +1,16 @@
+isRunning,instantaneousSpeed,instantaneousCadence,instantaneousStrideLength,totalDistance,msFromStart
+False,0.0,0,0,0,540
+False,0.0,0,0,0,2026
+False,0.0,0,0,0,3013
+False,0.0,0,0,0,4011
+False,0.0,0,0,0,4997
+False,0.0,0,0,0,5983
+False,0.46875,0,0,0,6984
+False,0.359375,16,0,9,7968
+False,0.359375,16,0,9,8952
+False,0.27734375,26,17,9,9951
+False,0.5546875,37,42,9,10933
+False,0.27734375,50,59,18,11927
+False,0.27734375,50,59,18,13411
+False,0.0,0,0,18,14403
+False,0.0,0,0,18,15398
