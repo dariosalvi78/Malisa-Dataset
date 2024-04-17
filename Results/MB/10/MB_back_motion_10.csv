@@ -1,4 +1,4 @@
-msFromStart,interval,accx,accy,accz,accGx,accGy,accGz,rotRate_alpha,rotRate_beta,rotRate_gamma
+ts,interval,accx,accy,accz,accGx,accGy,accGz,alpha,beta,gamma
 1698675165007.0,16,0.1,0.0,0.0,-1.1,9.3,2.1,0.2,-5.8,-0.8
 1698675165024.0,16,0.1,0.0,0.1,-1.1,9.3,2.2,1.2000000000000002,-4.3999999999999995,-0.4
 1698675165040.0,16,0.1,0.0,0.1,-1.1,9.200000000000001,2.2,1.5000000000000002,-4.300000000000001,-0.5

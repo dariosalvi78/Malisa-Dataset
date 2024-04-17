@@ -1,4 +1,4 @@
-isRunning,instantaneousSpeed,instantaneousCadence,instantaneousStrideLength,totalDistance,msFromStart
+isRunning,instantaneousSpeed,instantaneousCadence,instantaneousStrideLength,totalDistance,ts
 False,0,0,0,38,1698414816421.0
 False,0,0,0,38,1698414816926.0
 False,0,0,0,38,1698414817908.0
