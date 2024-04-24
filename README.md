@@ -15,4 +15,4 @@ In practice, the tests were numbered so that the participants did them in the sa
 
 Data file: basic data supplied by Dario SALVI (except for data on mats and shoes, which were cut beforehand).
 
-Results file: data broken down by test in relation to the time of the phone in the hand with 5 seconds of insertions (5 seconds before the start and 5 seconds after the end).
+Results file: data broken down by test in relation to the time of the phone in the hand with 5 seconds of insertions (5 seconds before the start and 5 seconds after the end). The following codes are used to cut the data: cutfile_mats_shoes (for mats and shoes) and cut_aut (for the phones and the smartwatches), kinect data and code to be added soon.
