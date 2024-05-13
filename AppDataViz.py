@@ -1,5 +1,5 @@
 import dash
-from dash import Dash,dcc, html, Input, Output, State
+from dash import Dash,dcc, html, Input, Output, State, ctx
 import pandas as pd
 import plotly.graph_objs as go
 import webbrowser
@@ -11,8 +11,9 @@ details_csv = pd.read_excel('Details_CSV.xlsx', header=0)
 
 ts = pd.read_csv('TS_sec.csv')
 
+## Plot acceleration
 
-def plot_acc(participant, num_test):
+def plot_acc(participant, num_test, test_name):
     df = {}
 
     time = ts[ts['Participant']==participant]
@@ -57,12 +58,10 @@ def plot_acc(participant, num_test):
 
                 fig1 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
                 fig1.add_trace(go.Scatter(x=acc_back['s'], y=acc_back['accGx'], mode='lines', name='Acceleration X'))
                 fig1.add_trace(go.Scatter(x=acc_back['s'], y=acc_back['accGy'], mode='lines', name='Acceleration Y'))
                 fig1.add_trace(go.Scatter(x=acc_back['s'], y=acc_back['accGz'], mode='lines', name='Acceleration Z'))
 
-                # Mettre à jour la disposition de la figure
                 fig1.update_layout(title=f'Acceleration (with G) - Participant: {participant}, Test: {num_test}, Device: Back Phone',
                     xaxis_title='Time (sec)',
                     yaxis_title='Acceleration (with G) (m/s^2)',
@@ -74,12 +73,10 @@ def plot_acc(participant, num_test):
 
                 fig2 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
                 fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGx'], mode='lines', name='Acceleration X'))
                 fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGy'], mode='lines', name='Acceleration Y'))
                 fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGz'], mode='lines', name='Acceleration Z'))
 
-                # Mettre à jour la disposition de la figure
                 fig2.update_layout(title=f'Acceleration (with G) - Participant: {participant}, Test: {num_test}, Device: Bangle',
                     xaxis_title='Time (sec)',
                     yaxis_title='Acceleration (with G) (m/s^2)',
@@ -91,12 +88,10 @@ def plot_acc(participant, num_test):
 
                 fig3 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
                 fig3.add_trace(go.Scatter(x=acc_hand['s'], y=acc_hand['accGx'], mode='lines', name='Acceleration X'))
                 fig3.add_trace(go.Scatter(x=acc_hand['s'], y=acc_hand['accGy'], mode='lines', name='Acceleration Y'))
                 fig3.add_trace(go.Scatter(x=acc_hand['s'], y=acc_hand['accGz'], mode='lines', name='Acceleration Z'))
 
-                # Mettre à jour la disposition de la figure
                 fig3.update_layout(title=f'Acceleration (with G) - Participant: {participant}, Test: {num_test}, Device: Hand Phone',
                     xaxis_title='Time (sec)',
                     yaxis_title='Acceleration (with G) (m/s^2)',
@@ -108,12 +103,10 @@ def plot_acc(participant, num_test):
 
                 fig4 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
                 fig4.add_trace(go.Scatter(x=acc_msafety['s'], y=acc_msafety['accGx'], mode='lines', name='Acceleration X'))
                 fig4.add_trace(go.Scatter(x=acc_msafety['s'], y=acc_msafety['accGy'], mode='lines', name='Acceleration Y'))
                 fig4.add_trace(go.Scatter(x=acc_msafety['s'], y=acc_msafety['accGz'], mode='lines', name='Acceleration Z'))
 
-                # Mettre à jour la disposition de la figure
                 fig4.update_layout(title=f'Acceleration (with G) - Participant: {participant}, Test: {num_test}, Device: Msafety',
                     xaxis_title='Time (sec)',
                     yaxis_title='Acceleration (with G) (m/s^2)',
@@ -121,14 +114,43 @@ def plot_acc(participant, num_test):
 
                 fig.append(fig4)
 
-        return fig
+        if len(fig)==1:
+            return html.Div([
+                html.H2(f"Acceleration for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0])
+            ])
+        elif len(fig)==2:
+            return html.Div([
+                html.H2(f"Acceleration for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1])
+            ])
+        elif len(fig)==3:
+            return html.Div([
+                html.H2(f"Acceleration for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_3', figure=fig[2])
+            ])
+        elif len(fig)==4:
+            return html.Div([
+                html.H2(f"Acceleration for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_3', figure=fig[2]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_4', figure=fig[3])
+            ])
 
     else:
-        return None
+        return html.Div([
+                html.H2(f"Acceleration for {participant} in {test_name}."),
+                dcc.Markdown('Metric not available for this participant and this test.')
+            ])
 
 
+## Plot rotation
 
-def plot_rot(participant, num_test):
+def plot_rot(participant, num_test,test_name):
     df = {}
 
     time = ts[ts['Participant']==participant]
@@ -213,14 +235,36 @@ def plot_rot(participant, num_test):
 
                 fig.append(fig3)
 
-        return fig
+        if len(fig)==1:
+            return html.Div([
+                html.H2(f"Rotation for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0])
+            ])
+        elif len(fig)==2:
+            return html.Div([
+                html.H2(f"Rotation for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1])
+            ])
+        elif len(fig)==3:
+            return html.Div([
+                html.H2(f"Rotation for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_3', figure=fig[2])
+            ])
 
     else :
-        return None
+        return html.Div([
+                html.H2(f"Rotation for {participant} in {test_name}."),
+                dcc.Markdown('Metric not available for this participant and this test.')
+            ])
 
 
 
-def plot_ppg(participant, num_test):
+## Plot ppg
+
+def plot_ppg(participant, num_test,test_name):
     df = {}
 
     time = ts[ts['Participant']==participant]
@@ -255,13 +299,22 @@ def plot_ppg(participant, num_test):
 
                 fig.append(fig1)
 
-        return fig
+        if len(fig)==1:
+            return html.Div([
+                html.H2(f"PPG for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0])
+            ])
+
     else :
-        return None
+        return html.Div([
+                html.H2(f"PPG for {participant} in {test_name}."),
+                dcc.Markdown('Metric not available for this participant and this test.')
+            ])
 
 
+## Plot hr
 
-def plot_hr(participant, num_test):
+def plot_hr(participant, num_test,test_name):
     df = {}
 
     time = ts[ts['Participant']==participant]
@@ -295,14 +348,22 @@ def plot_hr(participant, num_test):
 
                 fig.append(fig1)
 
-        return fig
+        if len(fig)==1:
+            return html.Div([
+                html.H2(f"Heart-Rate for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0])
+            ])
 
     else :
-        return None
+        return html.Div([
+                html.H2(f"Heart-Rate for {participant} in {test_name}."),
+                dcc.Markdown('Metric not available for this participant and this test.')
+            ])
 
 
+## Plot steps
 
-def plot_steps(participant,num_test):
+def plot_step(participant,num_test, test_name):
     df = {}
 
     time = ts[ts['Participant']==participant]
@@ -384,13 +445,41 @@ def plot_steps(participant,num_test):
 
                 fig.append(fig4)
 
-        return fig
+        if len(fig)==1:
+            return html.Div([
+                html.H2(f"Step for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0])
+            ])
+        elif len(fig)==2:
+            return html.Div([
+                html.H2(f"Step for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1])
+            ])
+        elif len(fig)==3:
+            return html.Div([
+                html.H2(f"Step for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_3', figure=fig[2])
+            ])
+        elif len(fig)==4:
+            return html.Div([
+                html.H2(f"Step for {participant} in {test_name}."),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_1', figure=fig[0]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_2', figure=fig[1]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_3', figure=fig[2]),
+                dcc.Graph(id=f'{participant}_{num_test}_acc_4', figure=fig[3])
+            ])
 
     else :
-        return None
+        return html.Div([
+                html.H2(f"Step for {participant} in {test_name}."),
+                dcc.Markdown('Metric not available for this participant and this test.')
+            ])
 
 
-
+## main
 class DashThread(threading.Thread):
     def __init__(self, data_list):
         threading.Thread.__init__(self)
@@ -398,10 +487,12 @@ class DashThread(threading.Thread):
 
         self.app = Dash(__name__)
 
+        existing_graphs = []
+
         # Données
         participants = ['DS', 'DL', 'MB', 'RC', 'PB', 'LC']
         tests = ['TUG 1','TUG 2','TUG slow 1','TUG slow 2','30CST','Locomo','10MWT 1','10MWT 2','partial 6MWT 1','partial 6MWT 2']
-        metrics = ["Acceleration", "Rotation","PPG", "Heart Rate", "Step"]
+        metrics = ["All","Acceleration", "Rotation","PPG", "Heart Rate", "Step"]
 
         # Création de la liste déroulante pour la sélection du participant
         dropdown_participant = dcc.Dropdown(
@@ -430,6 +521,9 @@ class DashThread(threading.Thread):
         # Création du conteneur pour les graphiques
         graph_container = html.Div(id='graph-container')
 
+        # Création d'un bouton pour vider la page
+        clear_button = html.Button('Clear', id='clear-button')
+
         # Mise en page de l'application
         self.app.layout = html.Div([
             html.H1("Data visualisation"),
@@ -438,26 +532,35 @@ class DashThread(threading.Thread):
                 dropdown_participant,
                 html.Label('Test'),
                 dropdown_test,
-                html.Label('Métrique'),
+                html.Label('Metric'),
                 dropdown_metric
             ], id='selection-form'),
             add_button,
+            clear_button,
             graph_container
         ])
 
         @self.app.callback(
             Output('graph-container', 'children'),
-            [Input('dropdown-participant', 'value'),
-            Input('dropdown-test', 'value'),
-            Input('dropdown-metric', 'value')],
-            [State('graph-container', 'children')]
+            Input('add-button','n_clicks'),
+            Input('clear-button','n_clicks'),
+            [State('dropdown-participant', 'value'),
+            State('dropdown-test', 'value'),
+            State('dropdown-metric', 'value')]
         )
 
-        def update_graphs(participant, test, metric, current_children):
+        def update_graphs(add_clicks, clear_clicks, participant, test, metric):
 
-            # Vérifier si toutes les sélections sont faites
+            if 'clear-button'==ctx.triggered_id :
+                existing_graphs.clear()
+                return dcc.Markdown('Choose a participant, a test and a metric.')
+
+            if add_clicks==0:
+                if participant is None or test is None or metric is None:
+                    return dcc.Markdown('Choose a participant, a test and a metric.')
+
             if participant is None or test is None or metric is None:
-                return None
+                return dcc.Markdown('Choose a participant, a test and a metric.')
 
             if test == 'TUG 1' :
                 t = 1
@@ -480,116 +583,47 @@ class DashThread(threading.Thread):
             elif test == 'partial 6MWT 2':
                 t=10
 
-            if metric == 'Acceleration':
-                fig = plot_acc(participant, t)
+            if metric == 'All':
+                d = plot_acc(participant,t,test)
+                existing_graphs.append(d)
+                d = plot_rot(participant, t,test)
+                existing_graphs.append(d)
+                d = plot_ppg(participant, t,test)
+                existing_graphs.append(d)
+                d = plot_hr(participant, t,test)
+                existing_graphs.append(d)
+                d = plot_step(participant, t,test)
+                existing_graphs.append(d)
+                return existing_graphs
 
-                if fig==None:
-                    return dcc.Markdown('Metric not available for this participant and this test.')
-                elif len(fig)==1:
-                    return dcc.Graph(id='graph1', figure=fig[0])
-                elif len(fig)==2:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1])
-                    ]
-                elif len(fig)==3:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1]),
-                        dcc.Graph(id='graph1', figure=fig[2])
-                    ]
-                elif len(fig)==4:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1]),
-                        dcc.Graph(id='graph1', figure=fig[2]),
-                        dcc.Graph(id='graph1', figure=fig[3])
-                    ]
+            if metric == 'Acceleration':
+                d = plot_acc(participant,t,test)
+                existing_graphs.append(d)
+                return existing_graphs
 
             if metric == 'Rotation':
-                fig = plot_rot(participant, t)
-
-                if fig==None:
-                    return dcc.Markdown('Metric not available for this participant and this test.')
-                elif len(fig)==1:
-                    return dcc.Graph(id='graph1', figure=fig[0])
-                elif len(fig)==2:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1])
-                    ]
-                elif len(fig)==3:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1]),
-                        dcc.Graph(id='graph1', figure=fig[2])
-                    ]
+                d = plot_rot(participant, t,test)
+                existing_graphs.append(d)
+                return existing_graphs
 
             if metric == 'PPG':
-                fig = plot_ppg(participant, t)
-
-                if fig==None:
-                    return dcc.Markdown('Metric not available for this participant and this test.')
-                elif len(fig)==1:
-                    return dcc.Graph(id='graph1', figure=fig[0])
+                d = plot_ppg(participant, t,test)
+                existing_graphs.append(d)
+                return existing_graphs
 
             if metric == 'Heart Rate':
-                fig = plot_hr(participant, t)
+                d = plot_hr(participant, t,test)
+                existing_graphs.append(d)
+                return existing_graphs
 
-                if fig==None:
-                    return dcc.Markdown('Metric not available for this participant and this test.')
+            if metric == 'Step':
+                d = plot_step(participant, t,test)
+                existing_graphs.append(d)
+                return existing_graphs
 
-                elif len(fig)==1:
-                    return dcc.Graph(id='graph1', figure=fig[0])
-
-            if metric == 'Cadence':
-                fig = plot_steps(participant, t)
-
-                if fig==None:
-                    return dcc.Markdown('Metric not available for this participant and this test.')
-                elif len(fig)==1:
-                    return dcc.Graph(id='graph1', figure=fig[0])
-                elif len(fig)==2:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1])
-                    ]
-                elif len(fig)==3:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1]),
-                        dcc.Graph(id='graph1', figure=fig[2])
-                    ]
-                elif len(fig)==4:
-                    return [
-                        dcc.Graph(id='graph1', figure=fig[0]),
-                        dcc.Graph(id='graph1', figure=fig[1]),
-                        dcc.Graph(id='graph1', figure=fig[2]),
-                        dcc.Graph(id='graph1', figure=fig[3])
-                    ]
-
-        ## Ajouter des graphiques
-        # @self.app.callback(
-        #     Output('selection-form', 'children'),
-        #     [Input('add-button', 'n_clicks')],
-        #     [State('selection-form', 'children')]
-        # )
-        # def add_selection_form(n_clicks, children):
-        #     if n_clicks > 0:
-        #         new_form = html.Div([
-        #             html.Label('Participant'),
-        #             dropdown_participant,
-        #             html.Label('Test'),
-        #             dropdown_test,
-        #             html.Label('Métrique'),
-        #             dropdown_metric
-        #         ])
-        #         children.append(new_form)
-        #     return children
-        ##
 
     def run(self):
-        self.app.run_server(debug=False)
+        self.app.run_server(debug=False,port=8020)
 
 
 
@@ -603,7 +637,7 @@ class App:
         dash_thread.start()
 
         # Open Dash app in web browser
-        webbrowser.open("http://localhost:8050")
+        webbrowser.open("http://localhost:8020")
 
 
 if __name__ == "__main__":
