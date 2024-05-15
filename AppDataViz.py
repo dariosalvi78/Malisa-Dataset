@@ -73,13 +73,13 @@ def plot_acc(participant, num_test, test_name):
 
                 fig2 = go.Figure()
 
-                fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGx'], mode='lines', name='Acceleration X'))
-                fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGy'], mode='lines', name='Acceleration Y'))
-                fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGz'], mode='lines', name='Acceleration Z'))
+                fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGGx'], mode='lines', name='Acceleration X'))
+                fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGGy'], mode='lines', name='Acceleration Y'))
+                fig2.add_trace(go.Scatter(x=acc_bangle['s'], y=acc_bangle['accGGz'], mode='lines', name='Acceleration Z'))
 
                 fig2.update_layout(title=f'Acceleration (with G) - Participant: {participant}, Test: {num_test}, Device: Bangle',
                     xaxis_title='Time (sec)',
-                    yaxis_title='Acceleration (with G) (m/s^2)',
+                    yaxis_title='Acceleration (g)',
                     legend=dict(x=0, y=1, traceorder='normal'))
 
                 fig.append(fig2)
@@ -623,7 +623,7 @@ class DashThread(threading.Thread):
 
 
     def run(self):
-        self.app.run_server(debug=False,port=8020)
+        self.app.run_server(debug=False,port=8070)
 
 
 
@@ -637,7 +637,7 @@ class App:
         dash_thread.start()
 
         # Open Dash app in web browser
-        webbrowser.open("http://localhost:8020")
+        webbrowser.open("http://localhost:8070")
 
 
 if __name__ == "__main__":

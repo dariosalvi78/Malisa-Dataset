@@ -40,7 +40,7 @@ In all files, the first column contains the absolute timestamps.
 - back_cadence : we find out whether the excutant is running (isRunning), the speed (instantaneousSpeed), cadence (instantaneousCadence), step length (instantaneousStrideLength) and distance covered (totalDistance).
 
 #### Bangle :
-- bangle_accel : we find acceleration with gravitation (accGx, accGy, accGz).
+- bangle_accel : we find acceleration in g (accGGx, accGGy, accGGz).
 - bangle_compass : we find rotation (magnRawx, magnRawy, magnRawz).
 - bangle_hr : we find heart-rate (hr) and the confidence interval (conf).
 - bangle_steps : we find the cadence (steps)
