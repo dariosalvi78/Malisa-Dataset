@@ -620,8 +620,78 @@ class DashThread(threading.Thread):
 
         ## Markers dictionary
         markers =  {'DS':{
-                    '1':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}}
-                }}
+                    '1':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '2':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '3':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '4':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '5':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '6':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '7':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '8':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '9':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '10':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}}
+                },
+            'DL':{
+                    '1':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '2':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '3':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '4':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '5':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '6':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '7':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '8':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '9':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '10':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}}
+                },
+            'MB':{
+                    '1':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '2':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '3':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '4':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '5':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '6':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '7':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '8':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '9':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '10':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}}
+                },
+            'RC':{
+                    '1':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '2':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '3':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '4':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '5':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '6':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '7':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '8':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '9':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '10':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}}
+                },
+            'PB':{
+                    '1':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '2':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '3':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '4':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '5':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '6':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '7':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '8':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '9':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '10':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}}
+                },
+            'LC':{
+                    '1':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '2':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '3':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '4':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '5':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '6':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '7':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '8':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '9':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}},
+                    '10':{'acc_back':{'x':{}, 'y':{}, 'z':{}}, 'acc_hand':{'x':{}, 'y':{}, 'z':{}}, 'acc_bangle':{'x':{}, 'y':{}, 'z':{}}, 'acc_msafety':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'acc_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'rot_back':{'a':{}, 'b':{}, 'g':{}}, 'rot_hand':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesLF':{'a':{}, 'b':{}, 'g':{}}, 'rot_shoesRF':{'a':{}, 'b':{}, 'g':{}}, 'mag_bangle':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesLF':{'x':{}, 'y':{}, 'z':{}}, 'mag_shoesRF':{'x':{}, 'y':{}, 'z':{}}, 'ppg_msafety':{}, 'hr_bangle':{}, 'step_bangle':{}, 'step_hand':{}, 'speed_hand':{}, 'stride_hand':{}}
+                }
+        }
 
         # Data
         participants = ['DS', 'DL', 'MB', 'RC', 'PB', 'LC']
@@ -640,7 +710,9 @@ class DashThread(threading.Thread):
             options=[{'label': test, 'value': test} for test in tests],
             value=None
         )
-
+        mats_button_next = dbc.Button('Add', id='next-button',n_clicks=0, color='primary', className='mt-2')
+        mats_button_clear = dbc.Button('Clear mats', id='clear-button-mats',n_clicks=0, color='primary', className='mt-2')
+        mats_graph_container = html.Div(id='mats-graph-container')
         ## Application layout
         self.app.layout = dbc.Container([
             html.Div([
@@ -935,7 +1007,30 @@ class DashThread(threading.Thread):
                 ]),
                 dcc.Tab(label='Mats', value='tab-7', children=[
                     html.Div([
-                        html.H1("Mats Visualization")
+                        html.H1("Mats Visualization"),
+                        mats_button_next,
+                        mats_button_clear,
+                        html.H4("Slider seat"),
+                        dcc.Slider(
+                            id='slider-seat',
+                            min=0,
+                            max=300,
+                            step=1,
+                            value=0,  # Valeur initiale
+                            marks={i: str(i) for i in range(0, 301, 5)}  # Marques sur le slider
+                        ),
+                        html.H4("Slider floor"),
+                        dcc.Slider(
+                            id='slider-floor',
+                            min=0,
+                            max=300,
+                            step=1,
+                            value=0,  # Valeur initiale
+                            marks={i: str(i) for i in range(0, 301, 5)}  # Marques sur le slider
+                        ),
+                        dcc.Store(id='clicks-store-seat', data=0),
+                        dcc.Store(id='clicks-store-floor', data=0),
+                        mats_graph_container
                     ])
                 ]),
                 dcc.Tab(label='Shoes', value='tab-8', children=[
@@ -1791,6 +1886,253 @@ class DashThread(threading.Thread):
             return return_graphs_step[0], return_graphs_step[1], return_graphs_step[2], return_graphs_step[3], return_divs_step[0], return_divs_step[1], return_divs_step[2], return_divs_step[3]
 
 
+        ## Management Mats
+        @self.app.callback(
+            Output('mats-graph-container', 'children'),
+            Output('slider-seat','step'),
+            Output('slider-floor','step'),
+            Output('slider-seat', 'data'),
+            Output('slider-floor','data'),
+            Output('slider-seat', 'max'),
+            Output('slider-floor','max'),
+            [Input('clear-button-mats','n_clicks'),
+             Input ('next-button', 'n_clicks'),
+            Input('slider-seat', 'value'),
+            Input('slider-floor','value')],
+            [State('dropdown-participant', 'value'),
+             State('dropdown-test', 'value'),
+             State('clicks-store-seat', 'data'),
+             State('clicks-store-floor', 'data')]
+        )
+        def update_mats_graphs(clear_clicks,n_clicks, slider_seat,slider_floor, participant, test,click_seat,click_floor):
+            if 'clear-button-mats'==ctx.triggered_id :
+                return [dcc.Markdown('Choose a participant and a test.')],1,1,0,0,100,100
+            if  n_clicks==0 or participant is None or test is None:
+                return [dcc.Markdown('Choose a participant and a test.')],1,1,0,0,100,100
+            else :
+                    if test == 'TUG 1' :
+                        num_test= 1
+                    elif test == 'TUG 2':
+                        num_test = 2
+                    elif test == 'TUG slow 1':
+                        num_test = 3
+                    elif test == 'TUG slow 2':
+                        num_test = 4
+                    elif test == '30CST':
+                        num_test=5
+                    elif test == 'Locomo':
+                        num_test=6
+                    elif test == '10MWT 1':
+                        num_test=7
+                    elif test == '10MWT 2':
+                        num_test=8
+                    elif test == 'partial 6MWT 1':
+                        num_test=9
+                    elif test == 'partial 6MWT 2':
+                        num_test=10
+                    fig=[]
+                    time = ts[ts['Participant']==participant]
+                    time.reset_index(drop=True, inplace=True)
+                    time = time[time['Test Number']==int(num_test)]
+                    time.reset_index(drop=True, inplace=True)
+                    start = time['Start timestamp'][0]
+                    if (num_test==7 or num_test==8 or num_test==9 or num_test==10):
+                        file_path_mat1=f'Results/{participant}/{num_test}/{participant}_mats_Floor1_{num_test}.csv'
+                        file_path_mat2=f'Results/{participant}/{num_test}/{participant}_mats_Floor2_{num_test}.csv'
+                        floor1=pd.read_csv(file_path_mat1)
+                        floor2=pd.read_csv(file_path_mat2)
+                        floor1['timestamp']=floor1['timestamp']-start
+                        floor2['timestamp']=floor2['timestamp']-start
+                        mat1=[]
+                        mat2=[]
+                        for index, ligne in floor1.iterrows():
+                            matrices=floor1.iloc[index,1:].to_numpy().reshape((28, 80))
+                            mat1.append(matrices)
+                        for index, ligne in floor2.iterrows():
+                            matrices=floor2.iloc[index,1:].to_numpy().reshape((28, 80))
+                            mat2.append(matrices)
+                        index_floor1=round(slider_floor/((max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/min(len(mat1)-1,len(mat2)-1)))
+                        index_floor2=round(slider_floor/((max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/min(len(mat1)-1,len(mat2)-1)))
+                        heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
+                        fig1 = go.Figure(data=[heatmap_floor1])
+                        fig1.update_layout(
+                        title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec",
+                            width= 1200,
+                            height= 300
+                        )
+                        fig.append(fig1)
+                        fig3_data=0
+                        fig3_layout=0
+                        heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
+                        fig2 = go.Figure(data=[heatmap_floor2])
+                        fig2.update_layout(
+                        title=f"Heatmap floor 2, time: {floor2.loc[index_floor2, 'timestamp']} sec",
+                            width= 1200,
+                            height= 300
+                        )
+                        fig.append(fig2)
+                    else:
+                        if (num_test==6 and (participant=="LC" or participant=="PB" or participant=="RC")):
+                            return [dcc.Markdown('No Locomo test.')],1,1,0,0,100,100
+                        elif (participant!="DS" and participant!="DL"):
+                            file_path_mat1=f'Results/{participant}/{num_test}/{participant}_mats_Floor1_{num_test}.csv'
+                            file_path_mat2=f'Results/{participant}/{num_test}/{participant}_mats_Floor2_{num_test}.csv'
+                            file_path_seat=f'Results/{participant}/{num_test}/{participant}_mats_Seat_{num_test}.csv'
+                            floor1=pd.read_csv(file_path_mat1)
+                            floor2=pd.read_csv(file_path_mat2)
+                            seats=pd.read_csv(file_path_seat)
+                            floor1['timestamp']=floor1['timestamp']-start
+                            floor2['timestamp']=floor2['timestamp']-start
+                            seats['timestamp']=seats['timestamp']-start
+                            mat1=[]
+                            mat2=[]
+                            seat=[]
+                            for index, ligne in floor1.iterrows():
+                                matrices=floor1.iloc[index,1:].to_numpy().reshape((28, 80))
+                                mat1.append(matrices)
+                            for index, ligne in floor2.iterrows():
+                                matrices=floor2.iloc[index,1:].to_numpy().reshape((28, 80))
+                                mat2.append(matrices)
+                            for index, ligne in seats.iterrows():
+                                matrices=seats.iloc[index,1:].to_numpy().reshape((20, 20))
+                                seat.append(matrices)
+                            index_floor1=round(slider_floor/((max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/min(len(mat1)-1,len(mat2)-1)))
+                            index_floor2=round(slider_floor/((max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/min(len(mat1)-1,len(mat2)-1)))
+                            index_seat=round(slider_seat/((seats['timestamp'].max()-seats['timestamp'].min())/(len(seat)-1)))
+                            heatmap_seat=go.Heatmap(z=seat[index_seat])
+                            fig3=go.Figure(data=[heatmap_seat])
+                            fig3.update_layout(
+                            title=f"Heatmap seat, time: {seats.loc[index_seat, 'timestamp']} sec",
+                                width= 500,
+                                height= 500
+                            )
+                            fig.append(fig3)
+                            fig3_data=fig3.data
+                            fig3_layout=fig3.layout
+                            heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
+                            fig1 = go.Figure(data=[heatmap_floor1])
+                            fig1.update_layout(
+                            title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec",
+                                width= 1200,
+                                height= 300
+                            )
+                            fig.append(fig1)
+                            heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
+                            fig2 = go.Figure(data=[heatmap_floor2])
+                            fig2.update_layout(
+                            title=f"Heatmap floor 2, time: {floor2.loc[index_floor2, 'timestamp']} sec",
+                                width= 1200,
+                                height= 300
+                            )
+                            fig.append(fig2)
+
+                        else:
+                            if (num_test==1 or num_test==2 or num_test==3 or num_test==4):
+                                file_path_mat1=f'Results/{participant}/{num_test}/{participant}_mats_Floor1_{num_test}.csv'
+                                file_path_mat2=f'Results/{participant}/{num_test}/{participant}_mats_Floor2_{num_test}.csv'
+                                file_path_seat=f'Results/{participant}/{num_test}/{participant}_mats_Seat_{num_test}.csv'
+                                floor1=pd.read_csv(file_path_mat1)
+                                floor2=pd.read_csv(file_path_mat2)
+                                seats=pd.read_csv(file_path_seat)
+                                floor1['timestamp']=floor1['timestamp']-start
+                                floor2['timestamp']=floor2['timestamp']-start
+                                seats['timestamp']=seats['timestamp']-start
+                                mat1=[]
+                                mat2=[]
+                                seat=[]
+                                for index, ligne in floor1.iterrows():
+                                    matrices=floor1.iloc[index,1:].to_numpy().reshape((28, 80))
+                                    mat1.append(matrices)
+                                for index, ligne in floor2.iterrows():
+                                    matrices=floor2.iloc[index,1:].to_numpy().reshape((28, 80))
+                                    mat2.append(matrices)
+                                for index, ligne in seats.iterrows():
+                                    matrices=seats.iloc[index,1:].to_numpy().reshape((20, 20))
+                                    seat.append(matrices)
+                                index_floor1=round(slider_floor/((max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/min(len(mat1)-1,len(mat2)-1)))
+                                index_seat=round(slider_seat/((seats['timestamp'].max()-seats['timestamp'].min())/(len(seat)-1)))
+                                index_floor2=round(slider_floor/((max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/min(len(mat1)-1,len(mat2)-1)))
+                                heatmap_seat=go.Heatmap(z=seat[index_seat])
+                                fig3=go.Figure(data=[heatmap_seat])
+                                fig3.update_layout(
+                                title=f"Heatmap seat, time: {seats.loc[index_seat, 'timestamp']} sec",
+                                    width= 500,
+                                    height= 500
+                                )
+                                fig.append(fig3)
+                                fig3_data=fig3.data
+                                fig3_layout=fig3.layout
+                                heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
+                                fig1 = go.Figure(data=[heatmap_floor1])
+                                fig1.update_layout(
+                                title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec ",
+                                    width= 1200,
+                                    height= 300
+                                )
+                                fig.append(fig1)
+                                heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
+                                fig2 = go.Figure(data=[heatmap_floor2])
+                                fig2.update_layout(
+                                title=f"Heatmap floor 2, time: {floor2.loc[index_floor2, 'timestamp']} sec",
+                                    width= 1200,
+                                    height= 300
+                                )
+                                fig.append(fig2)
+
+                            else:
+                                file_path_mat1=f'Results/{participant}/{num_test}/{participant}_mats_Floor1_{num_test}.csv'
+                                file_path_seat=f'Results/{participant}/{num_test}/{participant}_mats_Seat_{num_test}.csv'
+                                floor1=pd.read_csv(file_path_mat1)
+                                seats=pd.read_csv(file_path_seat)
+                                floor1['timestamp']=floor1['timestamp']-start
+                                seats['timestamp']=seats['timestamp']-start
+                                mat1=[]
+                                seat=[]
+                                for index, ligne in floor1.iterrows():
+                                    matrices=floor1.iloc[index,1:].to_numpy().reshape((28, 80))
+                                    mat1.append(matrices)
+                                for index, ligne in seats.iterrows():
+                                    matrices=seats.iloc[index,1:].to_numpy().reshape((20, 20))
+                                    seat.append(matrices)
+                                index_floor1=round(slider_floor/((floor1['timestamp'].max()-floor1['timestamp'].min())/(len(mat1)-1)))
+                                index_seat=round(slider_seat/((seats['timestamp'].max()-seats['timestamp'].min())/(len(seat)-1)))
+                                heatmap_seat=go.Heatmap(z=seat[index_seat])
+                                fig3=go.Figure(data=[heatmap_seat])
+                                fig3.update_layout(
+                                title=f"Heatmap seat, time: {seats.loc[index_seat, 'timestamp'] } sec",
+                                    width= 500,
+                                    height= 500
+                                )
+                                fig.append(fig3)
+                                fig3_data=fig3.data
+                                fig3_layout=fig3.layout
+                                heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
+                                fig1 = go.Figure(data=[heatmap_floor1])
+                                fig1.update_layout(
+                                title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec",
+                                    width= 1200,
+                                    height= 300
+                                )
+                                fig.append(fig1)
+                    # Return updated figures and indices
+                    if len(fig)==3:
+                        return  [html.Div([
+                            dcc.Graph(id='heatmap-graph-1', figure=fig[0]),
+                            dcc.Graph(id='heatmap-graph-2', figure=fig[1]),
+                            dcc.Graph(id='heatmap-graph-3', figure=fig[2])
+                        ])],(seats['timestamp'].max()-seats['timestamp'].min())/len(seat),(max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/max(len(mat1),len(mat2)),click_seat,click_floor,seats['timestamp'].max()-seats['timestamp'].min(),max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min())
+                    else :
+                        if any(fig.data == fig3_data and fig.layout == fig3_layout for fig in fig):
+                            return  [html.Div([
+                                dcc.Graph(id='heatmap-graph-1', figure=fig[0]),
+                                dcc.Graph(id='heatmap-graph-2', figure=fig[1])
+                            ])],(seats['timestamp'].max()-seats['timestamp'].min())/(len(seat)-1),(floor1['timestamp'].max()-floor1['timestamp'].min())/(len(mat1)-1),click_seat,click_floor,seats['timestamp'].max()-seats['timestamp'].min(),floor1['timestamp'].max()-floor1['timestamp'].min()
+                        else:
+                            return  [html.Div([
+                                dcc.Graph(id='heatmap-graph-1', figure=fig[0]),
+                                dcc.Graph(id='heatmap-graph-2', figure=fig[1])
+                            ])],1,(max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/max(len(mat1)-1,len(mat2)-1),0,click_floor,20,max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min())
+
         ## Additional tab management to display the dictionary
         @self.app.callback(
             Output("modal", "is_open"),
@@ -1808,7 +2150,7 @@ class DashThread(threading.Thread):
 
 
     def run(self):
-        self.app.run_server(debug=False,port=8065)
+        self.app.run_server(debug=False,port=8074)
 
 
 
@@ -1822,7 +2164,7 @@ class App:
         dash_thread.start()
 
         # Open Dash app in web browser
-        webbrowser.open("http://localhost:8065")
+        webbrowser.open("http://localhost:8074")
 
 
 if __name__ == "__main__":
