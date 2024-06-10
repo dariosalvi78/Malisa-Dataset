@@ -61,10 +61,12 @@ accRawx, axxRawy, accRawz, rotRawx, rotRawy, rotRawz, magnRawx, magnRawy, magnRa
 #### Mats :
 We find a matrix where the values represent the pressure applied to the mats.
 
-### Kinect 
+#### Kinect 
 We only have the kinect files for DS, and the csvs contain skeleton : points that position the different parts of the body in space. 
 
 ## Data visualisation
 We created our visualisation tool in Python using the Dash library. 
 
 In the tool you can choose the participant and the test and you have a tab for each metric (acceleration, rotation...), you can place markers to represent key moments in the test (except for the skeleton) and you can retrieve these markers by pressing the show markers button and copying the json displayed.
+
+All the code is in the AppDataViz.py file, so all you have to do is run this code (possibly install some libraries if you don't have them all).
