@@ -32,6 +32,7 @@ For each participant there is a file for each test and for each test there is a 
 ## Structure of the files
 We will now look at the structure of the files : 
 We have made an excel file (details_CSV.xlsx) grouping together all the files that are empty and the exact order of the columns (some columns are interchanged in certain tests).
+We have made an excel file (KinectInfo.xlsx) which explains how skeleton files are created.
 
 In all files, the first column contains the absolute timestamps. 
 #### Back phone :
@@ -41,7 +42,7 @@ In all files, the first column contains the absolute timestamps.
 
 #### Bangle :
 - bangle_accel : we find acceleration in g (accGGx, accGGy, accGGz).
-- bangle_compass : we find rotation (magnRawx, magnRawy, magnRawz).
+- bangle_compass : we find magnetic field (magnRawx, magnRawy, magnRawz).
 - bangle_hr : we find heart-rate (hr) and the confidence interval (conf).
 - bangle_steps : we find the cadence (steps)
 
@@ -60,4 +61,10 @@ accRawx, axxRawy, accRawz, rotRawx, rotRawy, rotRawz, magnRawx, magnRawy, magnRa
 #### Mats :
 We find a matrix where the values represent the pressure applied to the mats.
 
+### Kinect 
+We only have the kinect files for DS, and the csvs contain skeleton : points that position the different parts of the body in space. 
+
 ## Data visualisation
+We created our visualisation tool in Python using the Dash library. 
+
+In the tool you can choose the participant and the test and you have a tab for each metric (acceleration, rotation...), you can place markers to represent key moments in the test (except for the skeleton) and you can retrieve these markers by pressing the show markers button and copying the json displayed.
