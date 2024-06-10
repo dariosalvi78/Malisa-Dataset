@@ -8,6 +8,9 @@ import tkinter as tk
 import threading
 import numpy as np
 import json
+import re
+from datetime import datetime, timedelta
+from plotly.subplots import make_subplots
 
 
 details_csv = pd.read_excel('Details_CSV.xlsx', header=0)
@@ -512,7 +515,7 @@ def plot_hr(participant, num_test,test_name):
         return [],[]
 
 
-## Plot steps
+## Plot step
 
 def plot_step(participant,num_test, test_name):
     df = {}
@@ -710,9 +713,21 @@ class DashThread(threading.Thread):
             options=[{'label': test, 'value': test} for test in tests],
             value=None
         )
-        mats_button_next = dbc.Button('Add', id='next-button',n_clicks=0, color='primary', className='mt-2')
-        mats_button_clear = dbc.Button('Clear mats', id='clear-button-mats',n_clicks=0, color='primary', className='mt-2')
+        mats_button_next = dbc.Button('Add', id='next-button',n_clicks=0, color='primary', className='m-2')
+        mats_button_clear = dbc.Button('Clear mats', id='clear-button-mats',n_clicks=0, color='primary', className='m-2')
         mats_graph_container = html.Div(id='mats-graph-container')
+
+
+        shoes_button_add = dbc.Button('Add', id='shoes-add-button',n_clicks=0, color='primary', className='m-2')
+        shoes_button_clear = dbc.Button('Clear shoes', id='shoes-clear-button',n_clicks=0, color='primary', className='m-2')
+        shoes_graph_container = html.Div(id='shoes-graph-container')
+
+        skeleton_clear_button = dbc.Button('Clear Skeleton', id='clear-skeleton-button', n_clicks=0, color='primary', className='m-2')
+        skeleton_next_button = dbc.Button('Next', id='skeleton-next-button', n_clicks=0, color='primary', className='m-2')
+        skeleton_previous_button = dbc.Button('Previous', id='skeleton-previous-button', n_clicks=0, color='primary', className='m-2')
+        skeleton_play_button = dbc.Button('Play', id='skeleton-play-button', n_clicks=0, color='primary', className='m-2')
+        skeleton_pause_button = dbc.Button('Pause', id='skeleton-pause-button', n_clicks=0, color='primary', className='m-2')
+
         ## Application layout
         self.app.layout = dbc.Container([
             html.Div([
@@ -724,7 +739,7 @@ class DashThread(threading.Thread):
                 dropdown_test
             ], id='selection-form'),
             html.Div([
-                dbc.Button('Show markers', id='show-markers-btn', color='primary', className='mt-2'),
+                dbc.Button('Show markers', id='show-markers-btn', color='primary', className='mt-2 mb-2'),
             ]),
             dcc.Tabs(id="tabs", value='tab-1', children=[
                 dcc.Tab(label='Acceleration', value='tab-1', children=[
@@ -735,10 +750,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-acc1', type='text'),
-                            dbc.Button('Add marker', id='add-marker-acc1', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-acc1', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-acc1', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-acc1', color='primary', className='m-2'),
                             html.Div(id='marker-list-acc1')
                         ], width=4)
                     ]),
@@ -749,10 +764,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-acc2', type='text'),
-                            dbc.Button('Add marker', id='add-marker-acc2', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-acc2', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-acc2', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-acc2', color='primary', className='m-2'),
                             html.Div(id='marker-list-acc2')
                         ], width=4)
                     ]),
@@ -763,10 +778,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-acc3', type='text'),
-                            dbc.Button('Add marker', id='add-marker-acc3', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-acc3', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-acc3', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-acc3', color='primary', className='m-2'),
                             html.Div(id='marker-list-acc3')
                         ], width=4)
                     ]),
@@ -777,10 +792,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-acc4', type='text'),
-                            dbc.Button('Add marker', id='add-marker-acc4', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-acc4', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-acc4', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-acc4', color='primary', className='m-2'),
                             html.Div(id='marker-list-acc4')
                         ], width=4)
                     ]),
@@ -791,10 +806,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-acc5', type='text'),
-                            dbc.Button('Add marker', id='add-marker-acc5', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-acc5', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-acc5', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-acc5', color='primary', className='m-2'),
                             html.Div(id='marker-list-acc5')
                         ], width=4)
                     ]),
@@ -805,10 +820,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-acc6', type='text'),
-                            dbc.Button('Add marker', id='add-marker-acc6', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-acc6', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-acc6', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-acc6', color='primary', className='m-2'),
                             html.Div(id='marker-list-acc6')
                         ], width=4)
                     ])
@@ -821,10 +836,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-rot1', type='text'),
-                            dbc.Button('Add marker', id='add-marker-rot1', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-rot1', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-rot1', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-rot1', color='primary', className='m-2'),
                             html.Div(id='marker-list-rot1')
                         ], width=4)
                     ]),
@@ -835,10 +850,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-rot2', type='text'),
-                            dbc.Button('Add marker', id='add-marker-rot2', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-rot2', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-rot2', color='primary', className='t-2'),
+                            dbc.Button('Reset marker', id='reset-marker-rot2', color='primary', className='m-2'),
                             html.Div(id='marker-list-rot2')
                         ], width=4)
                     ]),
@@ -849,10 +864,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-rot3', type='text'),
-                            dbc.Button('Add marker', id='add-marker-rot3', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-rot3', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-rot3', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-rot3', color='primary', className='m-2'),
                             html.Div(id='marker-list-rot3')
                         ], width=4)
                     ]),
@@ -863,10 +878,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-rot4', type='text'),
-                            dbc.Button('Add marker', id='add-marker-rot4', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-rot4', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-rot4', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-rot4', color='primary', className='m-2'),
                             html.Div(id='marker-list-rot4')
                         ], width=4)
                     ])
@@ -879,10 +894,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-mag1', type='text'),
-                            dbc.Button('Add marker', id='add-marker-mag1', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-mag1', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-mag1', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-mag1', color='primary', className='m-2'),
                             html.Div(id='marker-list-mag1')
                         ], width=4)
                     ]),
@@ -893,10 +908,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-mag2', type='text'),
-                            dbc.Button('Add marker', id='add-marker-mag2', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-mag2', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-mag2', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-mag2', color='primary', className='m-2'),
                             html.Div(id='marker-list-mag2')
                         ], width=4)
                     ]),
@@ -907,10 +922,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-mag3', type='text'),
-                            dbc.Button('Add marker', id='add-marker-mag3', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-mag3', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-mag3', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-mag3', color='primary', className='m-2'),
                             html.Div(id='marker-list-mag3')
                         ], width=4)
                     ])
@@ -923,10 +938,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-ppg1', type='text'),
-                            dbc.Button('Add marker', id='add-marker-ppg1', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-ppg1', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-ppg1', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-ppg1', color='primary', className='m-2'),
                             html.Div(id='marker-list-ppg1')
                         ], width=4)
                     ])
@@ -939,10 +954,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-hr1', type='text'),
-                            dbc.Button('Add marker', id='add-marker-hr1', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-hr1', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-hr1', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-hr1', color='primary', className='m-2'),
                             html.Div(id='marker-list-hr1')
                         ], width=4)
                     ])
@@ -955,10 +970,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-step1', type='text'),
-                            dbc.Button('Add marker', id='add-marker-step1', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-step1', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-step1', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-step1', color='primary', className='m-2'),
                             html.Div(id='marker-list-step1')
                         ], width=4)
                     ]),
@@ -969,10 +984,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-step2', type='text'),
-                            dbc.Button('Add marker', id='add-marker-step2', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-step2', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-step2', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-step2', color='primary', className='m-2'),
                             html.Div(id='marker-list-step2')
                         ], width=4)
                     ]),
@@ -983,10 +998,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-step3', type='text'),
-                            dbc.Button('Add marker', id='add-marker-step3', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-step3', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-step3', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-step3', color='primary', className='m-2'),
                             html.Div(id='marker-list-step3')
                         ], width=4)
                     ]),
@@ -997,10 +1012,10 @@ class DashThread(threading.Thread):
                             )
                         ], width=8),
                         dbc.Col([
-                            dbc.Label('Marker name'),
+                            dbc.Label('Marker name', className='mt-4'),
                             dbc.Input(id='marker-name-step4', type='text'),
-                            dbc.Button('Add marker', id='add-marker-step4', color='primary', className='mt-2'),
-                            dbc.Button('Reset marker', id='reset-marker-step4', color='primary', className='mt-2'),
+                            dbc.Button('Add marker', id='add-marker-step4', color='primary', className='m-2'),
+                            dbc.Button('Reset marker', id='reset-marker-step4', color='primary', className='m-2'),
                             html.Div(id='marker-list-step4')
                         ], width=4)
                     ])
@@ -1035,12 +1050,37 @@ class DashThread(threading.Thread):
                 ]),
                 dcc.Tab(label='Shoes', value='tab-8', children=[
                     html.Div([
-                        html.H1("Shoes Visualization")
+                        html.H1("Shoes Visualization"),
+                        shoes_button_add,
+                        shoes_button_clear,
+                        html.H4("Slider shoes"),
+                        dcc.Slider(
+                            id='shoes-slider',
+                            min=0,
+                            max=300,
+                            step=1,
+                            value=0,  # Valeur initiale
+                            marks={i: str(i) for i in range(0, 301, 5)}  # Marques sur le slider
+                        ),
+                        dcc.Store(id='shoes-clicks-store', data=0),
+                        shoes_graph_container
                     ])
                 ]),
                 dcc.Tab(label='Skeleton', value='tab-9', children=[
                     html.Div([
-                        html.H1("Skeleton Visualization")
+                        html.H1("Skeleton Visualization"),
+                        dcc.Slider(id='timestamp-slider', min=0, max=0, step=1, value=0),
+                        html.Div([
+                            skeleton_previous_button,
+                            skeleton_next_button,
+                            skeleton_play_button,
+                            skeleton_pause_button,
+                            html.Label('Speed (ms):'),
+                            dcc.Input(id='speed-input', type='number', value=1000),
+                        ]),
+                        dcc.Graph(id='skeleton-graph'),
+                        skeleton_clear_button,
+                        dcc.Interval(id='interval-component', interval=1000, n_intervals=0, disabled=True)
                     ])
                 ])
             ])
@@ -1188,9 +1228,9 @@ class DashThread(threading.Thread):
                 d = ''.join(d)
 
                 marker_items = (
-                [html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['x'].items()]
-                +[html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['y'].items()]
-                +[html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['z'].items()])
+                [html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['x'].items()]
+                +[html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['y'].items()]
+                +[html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['z'].items()])
 
                 if marker_items:
                     return_divs_acc[i] = html.Ul(marker_items)
@@ -1347,9 +1387,9 @@ class DashThread(threading.Thread):
                 d = ''.join(d)
 
                 marker_items = (
-                [html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['a'].items()]
-                +[html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['b'].items()]
-                +[html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['g'].items()])
+                [html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['a'].items()]
+                +[html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['b'].items()]
+                +[html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['g'].items()])
 
                 if marker_items:
                     return_divs_rot[i] = html.Ul(marker_items)
@@ -1500,9 +1540,9 @@ class DashThread(threading.Thread):
                 d = ''.join(d)
 
                 marker_items = (
-                [html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['x'].items()]
-                +[html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['y'].items()]
-                +[html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d]['z'].items()])
+                [html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['x'].items()]
+                +[html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['y'].items()]
+                +[html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d]['z'].items()])
 
                 if marker_items:
                     return_divs_mag[i] = html.Ul(marker_items)
@@ -1632,7 +1672,7 @@ class DashThread(threading.Thread):
                 d = ''.join(d)
 
                 marker_items = (
-                [html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d].items()]
+                [html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d].items()]
                 )
 
                 if marker_items:
@@ -1741,7 +1781,7 @@ class DashThread(threading.Thread):
                 d = ''.join(d)
 
                 marker_items = (
-                [html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d].items()]
+                [html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d].items()]
                 )
 
                 if marker_items:
@@ -1866,7 +1906,7 @@ class DashThread(threading.Thread):
                 d = ''.join(d)
 
                 marker_items = (
-                [html.Li(f"Point ({x}, {y}): {n}") for n, (x, y) in markers[participant][n_t][d].items()]
+                [html.Li(f"Point ({round(x,2)}, {round(y,2)}): {n}") for n, (x, y) in markers[participant][n_t][d].items()]
                 )
 
                 if marker_items:
@@ -1886,7 +1926,186 @@ class DashThread(threading.Thread):
             return return_graphs_step[0], return_graphs_step[1], return_graphs_step[2], return_graphs_step[3], return_divs_step[0], return_divs_step[1], return_divs_step[2], return_divs_step[3]
 
 
-        ## Management Mats
+        ## Skeleton Management
+        @self.app.callback(
+            Output('timestamp-slider', 'max'),
+            Output('timestamp-slider', 'marks'),
+            Input('dropdown-test', 'value')
+        )
+        def update_slider_max(selected_test):
+            if not selected_test:
+                return 0, {}
+
+            kinect_info_path = 'KinectInfo.xlsx'
+            kinect_info_df = pd.read_excel(kinect_info_path)
+
+            test_number = tests.index(selected_test) + 1
+            selected_file_name = kinect_info_df.loc[kinect_info_df['Test'] == test_number, 'FileName'].values[0]
+            kinect_file_path = f'Data/DS/kinect/{test_number}/{selected_file_name}'
+            kinect_ds = pd.read_csv(kinect_file_path)
+
+            if 1 <= test_number <= 4:
+                kinect_ds = kinect_ds[kinect_ds['SkeletonId'] == 72057594037944850]
+
+            max_timestamp_index = len(kinect_ds) - 1
+            marks = {i: str(i) for i in range(0, max_timestamp_index, max_timestamp_index // 10)}
+            return max_timestamp_index, marks
+
+
+        @self.app.callback(
+            Output('timestamp-slider', 'value'),
+            Input('skeleton-next-button', 'n_clicks'),
+            Input('skeleton-previous-button', 'n_clicks'),
+            Input('interval-component', 'n_intervals'),
+            State('timestamp-slider', 'value'),
+            State('timestamp-slider', 'max'),
+            State('interval-component', 'disabled')
+        )
+        def update_slider_value(next_clicks, prev_clicks, n_intervals, current_value, max_value, interval_disabled):
+            ctx = dash.callback_context
+            if not ctx.triggered:
+                return current_value
+            button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+            if button_id == 'skeleton-next-button' and current_value < max_value:
+                return current_value + 1
+            elif button_id == 'skeleton-previous-button' and current_value > 0:
+                return current_value - 1
+            elif button_id == 'interval-component' and not interval_disabled:
+                if current_value < max_value:
+                    return current_value + 1
+                else:
+                    return 0
+
+            return current_value
+
+        @self.app.callback(
+            Output('interval-component', 'interval'),
+            Input('speed-input', 'value')
+        )
+        def update_interval(speed_value):
+            return speed_value
+
+        @self.app.callback(
+            Output('interval-component', 'disabled'),
+            Input('skeleton-play-button', 'n_clicks'),
+            Input('skeleton-pause-button', 'n_clicks'),
+            State('interval-component', 'disabled')
+        )
+        def toggle_interval(play_clicks, pause_clicks, interval_disabled):
+            ctx = dash.callback_context
+            if not ctx.triggered:
+                return interval_disabled
+            button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+            if button_id == 'skeleton-play-button':
+                return False
+            elif button_id == 'skeleton-pause-button':
+                return True
+
+            return interval_disabled
+
+        @self.app.callback(
+            Output('skeleton-graph', 'figure'),
+            Input('timestamp-slider', 'value'),
+            Input('dropdown-test', 'value'),
+            Input('clear-skeleton-button', 'n_clicks')
+        )
+        def update_skeleton_graph(timestamp_index, selected_test, clear_n_clicks):
+            ctx = dash.callback_context
+            if not ctx.triggered:
+                return go.Figure()
+            button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+            if button_id == 'clear-skeleton-button':
+                return go.Figure()
+
+            if not selected_test:
+                return go.Figure()
+
+            kinect_info_path = 'KinectInfo.xlsx'
+            kinect_info_df = pd.read_excel(kinect_info_path)
+
+            test_number = tests.index(selected_test) + 1
+            selected_file_name = kinect_info_df.loc[kinect_info_df['Test'] == test_number, 'FileName'].values[0]
+            kinect_file_path = f'Data/DS/kinect/{test_number}/{selected_file_name}'
+            kinect_ds = pd.read_csv(kinect_file_path)
+
+            if 1 <= test_number <= 4:
+                kinect_ds = kinect_ds[kinect_ds['SkeletonId'] == 72057594037944850]
+
+            kinect_ds['Time'] = kinect_ds['Time'] / 10000000
+            kinect_ds = kinect_ds.rename(columns={'Time': 'timestamp'})
+
+            start_test_date = get_start_test_date(selected_file_name)
+            kinect_ds['timestamp'] = kinect_ds['timestamp'].apply(lambda x: convert_to_epoch_seconds(x, start_test_date))
+
+            timestamp = kinect_info_df.loc[kinect_info_df['Test'] == test_number, 'Timestamp'].values[0]
+            kinect_ds['timestamp'] = kinect_ds['timestamp'] - timestamp
+            kinect_ds.rename(columns={'PositionX': 'PositionX.0', 'PositionY': 'PositionY.0'}, inplace=True)
+
+            selected_columns = [f'PositionX.{i}' for i in range(25)] + [f'PositionY.{i}' for i in range(25)]
+            kinect_ds_selected = kinect_ds[selected_columns]
+
+            body_parts = [
+                "SpineBase", "SpineMid", "Neck", "Head", "ShoulderLeft", "ElbowLeft", "WristLeft",
+                "HandLeft", "ShoulderRight", "ElbowRight", "WristRight", "HandRight", "HipLeft",
+                "KneeLeft", "AnkleLeft", "FootLeft", "HipRight", "KneeRight", "AnkleRight", "FootRight",
+                "SpineShoulder", "HandTipLeft", "ThumbLeft", "HandTipRight", "ThumbRight"
+            ]
+
+            body_connections = [
+                ("Head", "Neck"), ("Neck", "SpineShoulder"), ("SpineShoulder", "SpineMid"),
+                ("SpineMid", "SpineBase"), ("SpineShoulder", "ShoulderLeft"), ("SpineShoulder", "ShoulderRight"),
+                ("ShoulderLeft", "ElbowLeft"), ("ElbowLeft", "WristLeft"), ("WristLeft", "HandLeft"),
+                ("ShoulderRight", "ElbowRight"), ("ElbowRight", "WristRight"), ("WristRight", "HandRight"),
+                ("SpineBase", "HipLeft"), ("HipLeft", "KneeLeft"), ("KneeLeft", "AnkleLeft"),
+                ("AnkleLeft", "FootLeft"), ("SpineBase", "HipRight"), ("HipRight", "KneeRight"),
+                ("KneeRight", "AnkleRight"), ("AnkleRight", "FootRight")
+            ]
+
+            figure = go.Figure()
+            timestamp_data = kinect_ds_selected.iloc[timestamp_index]
+
+            for i in range(25):
+                x = timestamp_data[f'PositionX.{i}']
+                y = timestamp_data[f'PositionY.{i}']
+                figure.add_trace(go.Scatter(x=[x], y=[y], mode='markers+text', text=[body_parts[i]], textposition="top center"))
+
+            for connection in body_connections:
+                part1, part2 = connection
+                x1 = timestamp_data[f'PositionX.{body_parts.index(part1)}']
+                y1 = timestamp_data[f'PositionY.{body_parts.index(part1)}']
+                x2 = timestamp_data[f'PositionX.{body_parts.index(part2)}']
+                y2 = timestamp_data[f'PositionY.{body_parts.index(part2)}']
+                figure.add_trace(go.Scatter(x=[x1, x2], y=[y1, y2], mode='lines'))
+
+            figure.update_layout(
+                title=f'Skeleton at {kinect_ds["timestamp"].iloc[timestamp_index]} seconds',
+                xaxis_title='Position X',
+                yaxis_title='Position Y',
+                showlegend=False,
+                width=600,
+                height=800
+            )
+
+            return figure
+
+        def get_start_test_date(selected_file_name):
+            match = re.search(r'(\d{8})_(\d{6})', selected_file_name)
+            if match:
+                date_str = match.group(1)
+                time_str = match.group(2)
+                start_test_date = datetime.strptime(date_str + time_str, '%Y%m%d%H%M%S')
+                return start_test_date
+            return None
+
+        def convert_to_epoch_seconds(timestamp, start_test_date):
+            local_time = start_test_date + timedelta(seconds=timestamp)
+            return local_time.timestamp()
+
+
+        ## Mats Management
         @self.app.callback(
             Output('mats-graph-container', 'children'),
             Output('slider-seat','step'),
@@ -2133,6 +2352,137 @@ class DashThread(threading.Thread):
                                 dcc.Graph(id='heatmap-graph-2', figure=fig[1])
                             ])],1,(max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min()))/max(len(mat1)-1,len(mat2)-1),0,click_floor,20,max(floor1['timestamp'].max(),floor2['timestamp'].max())-min(floor1['timestamp'].min(),floor2['timestamp'].min())
 
+
+        ## Shoes Management
+        @self.app.callback(
+            Output('shoes-graph-container', 'children'),
+            Output('shoes-slider', 'step'),
+            Output('shoes-slider', 'value'),
+            Output('shoes-slider', 'max'),
+            [Input('shoes-clear-button', 'n_clicks'),
+             Input('shoes-add-button', 'n_clicks'),
+             Input('shoes-slider', 'value')],
+            [State('dropdown-participant', 'value'),
+             State('dropdown-test', 'value'),
+             State('shoes-clicks-store', 'data')]
+        )
+        def update_shoes_graphs(clear_clicks, n_clicks, slider, participant, test, click_count):
+
+            triggered_id = ctx.triggered_id
+
+            # Gestion du bouton clear
+            if triggered_id == 'clear-button-shoes':
+                return [dcc.Markdown('Choisissez un participant et un test.')], 1, 0, 100
+
+            # État initial ou aucune sélection de participant/test
+            if n_clicks == 0 or participant is None or test is None:
+                return [dcc.Markdown('Choisissez un participant et un test.')], 1, 0, 100
+
+            # Déterminer le numéro du test
+            tests = {
+                'TUG 1': 1, 'TUG 2': 2, 'TUG slow 1': 3, 'TUG slow 2': 4,
+                '30CST': 5, 'Locomo': 6, '10MWT 1': 7, '10MWT 2': 8,
+                'partial 6MWT 1': 9, 'partial 6MWT 2': 10
+            }
+            num_test = tests.get(test)
+
+            # Lecture des fichiers
+            file_path_shoes_lf = f'Results/{participant}/{num_test}/{participant}_shoes_lf_{num_test}.csv'
+            file_path_shoes_rf = f'Results/{participant}/{num_test}/{participant}_shoes_rf_{num_test}.csv'
+
+            shoes_lf = pd.read_csv(file_path_shoes_lf)
+            shoes_rf = pd.read_csv(file_path_shoes_rf)
+
+            # Synchronisation des timestamps
+            time = ts[ts['Participant']==participant]
+            start = time['Start timestamp'][0]
+
+            if (participant=="DS" or participant=="DL"):
+                shoes_lf['timestamp'] = shoes_lf['timestamp']-7200-start
+                shoes_rf['timestamp'] = shoes_rf['timestamp']-7200-start
+
+            else:
+                shoes_lf['timestamp'] = shoes_lf['timestamp']-3600-start
+                shoes_rf['timestamp'] = shoes_rf['timestamp']-3600-start
+
+            # Initialisation des matrices
+            matrix_lf = np.zeros((21, 21))
+            matrix_rf = np.zeros((21, 21))
+
+            # Coordonnées des pressions
+            pressures_coordinates_lf = [(11, 1), (9, 1), (8.5, 17), (10.5, 18), (12.5, 19)]
+            pressures_coordinates_rf = [(9, 1), (11, 1), (12.5, 17), (10.5, 18), (8.5, 19)]
+
+            def coordinates_to_indices(coord):
+                return int(coord[1]), int(coord[0])
+
+            # Calcul de l'indice en fonction du curseur
+            index_lf = round(slider / ((shoes_lf['timestamp'].max() - shoes_lf['timestamp'].min()) / len(matrix_lf)))
+            index_rf = round(slider / ((shoes_rf['timestamp'].max() - shoes_rf['timestamp'].min()) / len(matrix_rf)))
+
+            # S'assurer que l'indice ne dépasse pas la taille des données
+            index_lf = min(index_lf, len(shoes_lf) - 1)
+            index_rf = min(index_rf, len(shoes_rf) - 1)
+
+            # Obtention des pressions et mise à jour des matrices
+            current_row_lf = shoes_lf.iloc[index_lf]
+            current_row_rf = shoes_rf.iloc[index_rf]
+            pressures_lf = current_row_lf[['pressure1', 'pressure2', 'pressure3', 'pressure4', 'pressure5']].values
+            pressures_rf = current_row_rf[['pressure1', 'pressure2', 'pressure3', 'pressure4', 'pressure5']].values
+
+            for coord, pressure in zip(pressures_coordinates_lf, pressures_lf):
+                i, j = coordinates_to_indices(coord)
+                matrix_lf[i, j] = pressure
+
+            for coord, pressure in zip(pressures_coordinates_rf, pressures_rf):
+                i, j = coordinates_to_indices(coord)
+                matrix_rf[i, j] = pressure
+
+            fig = make_subplots(rows=1, cols=2)
+
+
+            # Création des figures de Heatmap
+            figure_lf = go.Heatmap(z=matrix_lf, colorscale='inferno')
+            figure_rf = go.Heatmap(z=matrix_rf, colorscale='inferno',showscale=False)
+
+            fig.add_trace(figure_lf, row=1, col=1)
+            fig.add_trace(figure_rf, row=1, col=2)
+
+            # Mise à jour des titres et des tailles des figures
+            fig.update_layout(
+                annotations=[
+                    dict(
+                        x=0.0, y=1.1,
+                        text=f"Heatmap shoes lf, timestamp: {current_row_lf['timestamp']}",
+                        showarrow=False,
+                        xref="paper",
+                        yref="paper",
+                        font=dict(size=12)
+                    ),
+                    dict(
+                        x=0.9, y=1.1,
+                        text=f"Heatmap shoes rf, timestamp: {current_row_rf['timestamp']}",
+                        showarrow=False,
+                        xref="paper",
+                        yref="paper",
+                        font=dict(size=12)
+                    )
+                ],
+                title=f"Shoes vizualisation",
+                width=1200,
+                height=500
+            )
+
+
+            # Retourner les figures mises à jour et les indices
+            return (
+                html.Div([dcc.Graph(id='shoes', figure=fig)]),
+                1,
+                click_count,
+                shoes_lf['timestamp'].max()-shoes_lf['timestamp'].min()
+            )
+
+
         ## Additional tab management to display the dictionary
         @self.app.callback(
             Output("modal", "is_open"),
@@ -2150,7 +2500,7 @@ class DashThread(threading.Thread):
 
 
     def run(self):
-        self.app.run_server(debug=False,port=8045)
+        self.app.run_server(debug=False,port=8070)
 
 
 
@@ -2164,7 +2514,7 @@ class App:
         dash_thread.start()
 
         # Open Dash app in web browser
-        webbrowser.open("http://localhost:8045")
+        webbrowser.open("http://localhost:8070")
 
 
 if __name__ == "__main__":
