@@ -248,12 +248,12 @@ def plot_rot(participant, num_test,test_name):
 
                 fig1 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
+                # Ajouter des traces de ligne pour l'accÃ©lÃ©ration dans les trois axes
                 fig1.add_trace(go.Scatter(x=rot_back['s'], y=rot_back['alpha'], mode='lines', name='Alpha'))
                 fig1.add_trace(go.Scatter(x=rot_back['s'], y=rot_back['beta'], mode='lines', name='Beta'))
                 fig1.add_trace(go.Scatter(x=rot_back['s'], y=rot_back['gamma'], mode='lines', name='Gamma'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig1.update_layout(title=f'Rotation - Participant: {participant}, Test: {num_test}, Device: Back Phone',
                     xaxis_title='Time (sec)',
                     yaxis_title='Rotation',
@@ -267,12 +267,12 @@ def plot_rot(participant, num_test,test_name):
 
                 fig2 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
+                # Ajouter des traces de ligne pour l'accÃ©lÃ©ration dans les trois axes
                 fig2.add_trace(go.Scatter(x=rot_hand['s'], y=rot_hand['alpha'], mode='lines', name='Alpha'))
                 fig2.add_trace(go.Scatter(x=rot_hand['s'], y=rot_hand['beta'], mode='lines', name='Beta'))
                 fig2.add_trace(go.Scatter(x=rot_hand['s'], y=rot_hand['gamma'], mode='lines', name='Gamma'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig2.update_layout(title=f'Rotation - Participant: {participant}, Test: {num_test}, Device: Hand Phone',
                     xaxis_title='Time (sec)',
                     yaxis_title='Rotation',
@@ -370,12 +370,12 @@ def plot_mag(participant, num_test, test_name):
 
                 fig1 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
+                # Ajouter des traces de ligne pour l'accÃ©lÃ©ration dans les trois axes
                 fig1.add_trace(go.Scatter(x=mag_bangle['s'], y=mag_bangle['magnRawx'], mode='lines', name='Magnetic Field X'))
                 fig1.add_trace(go.Scatter(x=mag_bangle['s'], y=mag_bangle['magnRawy'], mode='lines', name='Magnetic Field Y'))
                 fig1.add_trace(go.Scatter(x=mag_bangle['s'], y=mag_bangle['magnRawz'], mode='lines', name='Magnetic Field Y'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig1.update_layout(title=f'Magnetic Field - Participant: {participant}, Test: {num_test}, Device: Bangle',
                     xaxis_title='Time (sec)',
                     yaxis_title='Magnetic Field',
@@ -456,7 +456,7 @@ def plot_ppg(participant, num_test,test_name):
 
                 fig1.add_trace(go.Scatter(x=ppg['s'], y=ppg['ppg'], mode='lines'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig1.update_layout(title=f'PPG - Participant: {participant}, Test: {num_test}, Device: Msafety',
                     xaxis_title='Time (sec)',
                     yaxis_title='PPG',
@@ -500,7 +500,7 @@ def plot_hr(participant, num_test,test_name):
 
                 fig1.add_trace(go.Scatter(x=hr['s'], y=hr['hr'], mode='lines'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig1.update_layout(title=f'Heart Rate - Participant: {participant}, Test: {num_test}, Device: Bangle',
                     xaxis_title='Time (sec)',
                     yaxis_title='Heart Rate',
@@ -551,7 +551,7 @@ def plot_step(participant,num_test, test_name):
 
                 fig1.add_trace(go.Scatter(x=steps_bangle['s'], y=steps_bangle['steps'], mode='lines'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig1.update_layout(title=f'Step - Participant: {participant}, Test: {num_test}, Device: Bangle',
                     xaxis_title='Time (sec)',
                     yaxis_title='Step',
@@ -564,10 +564,10 @@ def plot_step(participant,num_test, test_name):
 
                 fig2 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
+                # Ajouter des traces de ligne pour l'accÃ©lÃ©ration dans les trois axes
                 fig2.add_trace(go.Scatter(x=steps_hand['s'], y=steps_hand['instantaneousSpeed'], mode='lines'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig2.update_layout(title=f'Speed - Participant: {participant}, Test: {num_test}, Device: Hand Phone',
                     xaxis_title='Time (sec)',
                     yaxis_title='Speed',
@@ -578,10 +578,10 @@ def plot_step(participant,num_test, test_name):
 
                 fig3 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
+                # Ajouter des traces de ligne pour l'accÃ©lÃ©ration dans les trois axes
                 fig3.add_trace(go.Scatter(x=steps_hand['s'], y=steps_hand['instantaneousCadence'], mode='lines'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig3.update_layout(title=f'Step - Participant: {participant}, Test: {num_test}, Device: Hand Phone',
                     xaxis_title='Time (sec)',
                     yaxis_title='Step',
@@ -592,10 +592,10 @@ def plot_step(participant,num_test, test_name):
 
                 fig4 = go.Figure()
 
-                # Ajouter des traces de ligne pour l'accélération dans les trois axes
+                # Ajouter des traces de ligne pour l'accÃ©lÃ©ration dans les trois axes
                 fig4.add_trace(go.Scatter(x=steps_hand['s'], y=steps_hand['instantaneousStrideLength'], mode='lines'))
 
-                # Mettre à jour la disposition de la figure
+                # Mettre Ã  jour la disposition de la figure
                 fig4.update_layout(title=f'Stride Length - Participant: {participant}, Test: {num_test}, Device: Hand Phone',
                     xaxis_title='Time (sec)',
                     yaxis_title='Stride Length',
@@ -2360,8 +2360,10 @@ class DashThread(threading.Thread):
         ## Shoes Management
         @self.app.callback(
             Output('shoes-graph-container', 'children'),
-            Output('shoes-slider', 'step'),
             Output('shoes-slider', 'value'),
+            Output('shoes-slider', 'step'),
+            Output('shoes-slider', 'data'),
+            Output('shoes-slider', 'min'),
             Output('shoes-slider', 'max'),
             [Input('shoes-clear-button', 'n_clicks'),
              Input('shoes-add-button', 'n_clicks'),
@@ -2375,14 +2377,14 @@ class DashThread(threading.Thread):
             triggered_id = ctx.triggered_id
 
             # Gestion du bouton clear
-            if triggered_id == 'clear-button-shoes':
-                return [dcc.Markdown('Choisissez un participant et un test.')], 1, 0, 100
+            if triggered_id == 'shoes-clear-button':
+                return [dcc.Markdown('Choisissez un participant et un test.')],0, 1,0, 0, 100
 
-            # État initial ou aucune sélection de participant/test
+            # Ã‰tat initial ou aucune sÃ©lection de participant/test
             if n_clicks == 0 or participant is None or test is None:
-                return [dcc.Markdown('Choisissez un participant et un test.')], 1, 0, 100
+                return [dcc.Markdown('Choisissez un participant et un test.')],0, 1,0, 0, 100
 
-            # Déterminer le numéro du test
+            # DÃ©terminer le numÃ©ro du test
             tests = {
                 'TUG 1': 1, 'TUG 2': 2, 'TUG slow 1': 3, 'TUG slow 2': 4,
                 '30CST': 5, 'Locomo': 6, '10MWT 1': 7, '10MWT 2': 8,
@@ -2399,6 +2401,9 @@ class DashThread(threading.Thread):
 
             # Synchronisation des timestamps
             time = ts[ts['Participant']==participant]
+            time.reset_index(drop=True, inplace=True)
+            time = time[time['Test Number']==int(num_test)]
+            time.reset_index(drop=True, inplace=True)
             start = time['Start timestamp'][0]
 
             if (participant=="DS" or participant=="DL"):
@@ -2413,7 +2418,7 @@ class DashThread(threading.Thread):
             matrix_lf = np.zeros((21, 21))
             matrix_rf = np.zeros((21, 21))
 
-            # Coordonnées des pressions
+            # CoordonnÃ©es des pressions
             pressures_coordinates_lf = [(11, 1), (9, 1), (8.5, 17), (10.5, 18), (12.5, 19)]
             pressures_coordinates_rf = [(9, 1), (11, 1), (12.5, 17), (10.5, 18), (8.5, 19)]
 
@@ -2421,14 +2426,19 @@ class DashThread(threading.Thread):
                 return int(coord[1]), int(coord[0])
 
             # Calcul de l'indice en fonction du curseur
-            index_lf = round(slider / ((shoes_lf['timestamp'].max() - shoes_lf['timestamp'].min()) / len(matrix_lf)))
-            index_rf = round(slider / ((shoes_rf['timestamp'].max() - shoes_rf['timestamp'].min()) / len(matrix_rf)))
+            min_timestamp = min(shoes_lf['timestamp'].min(), shoes_rf['timestamp'].min())
+            max_timestamp = max(shoes_lf['timestamp'].max(), shoes_rf['timestamp'].max())
+            range_timestamp = max_timestamp - min_timestamp
+            step = range_timestamp / max(len(shoes_lf), len(shoes_rf))
 
-            # S'assurer que l'indice ne dépasse pas la taille des données
+            index_lf = round((slider - min_timestamp) / step)
+            index_rf = round((slider - min_timestamp) / step)
+
+            # S'assurer que l'indice ne dÃ©passe pas la taille des donnÃ©es
             index_lf = min(index_lf, len(shoes_lf) - 1)
             index_rf = min(index_rf, len(shoes_rf) - 1)
 
-            # Obtention des pressions et mise à jour des matrices
+            # Obtention des pressions et mise Ã  jour des matrices
             current_row_lf = shoes_lf.iloc[index_lf]
             current_row_rf = shoes_rf.iloc[index_rf]
             pressures_lf = current_row_lf[['pressure1', 'pressure2', 'pressure3', 'pressure4', 'pressure5']].values
@@ -2438,6 +2448,7 @@ class DashThread(threading.Thread):
                 i, j = coordinates_to_indices(coord)
                 matrix_lf[i, j] = pressure
 
+
             for coord, pressure in zip(pressures_coordinates_rf, pressures_rf):
                 i, j = coordinates_to_indices(coord)
                 matrix_rf[i, j] = pressure
@@ -2445,19 +2456,19 @@ class DashThread(threading.Thread):
             fig = make_subplots(rows=1, cols=2)
 
 
-            # Création des figures de Heatmap
+            # CrÃ©ation des figures de Heatmap
             figure_lf = go.Heatmap(z=matrix_lf, colorscale='inferno')
             figure_rf = go.Heatmap(z=matrix_rf, colorscale='inferno',showscale=False)
 
             fig.add_trace(figure_lf, row=1, col=1)
             fig.add_trace(figure_rf, row=1, col=2)
 
-            # Mise à jour des titres et des tailles des figures
+            # Mise Ã  jour des titres et des tailles des figures
             fig.update_layout(
                 annotations=[
                     dict(
                         x=0.0, y=1.1,
-                        text=f"Heatmap shoes lf, timestamp: {current_row_lf['timestamp']}",
+                        text=f"Heatmap shoes lf, timestamp: {shoes_lf.loc[index_lf, 'timestamp']}",
                         showarrow=False,
                         xref="paper",
                         yref="paper",
@@ -2465,7 +2476,7 @@ class DashThread(threading.Thread):
                     ),
                     dict(
                         x=0.9, y=1.1,
-                        text=f"Heatmap shoes rf, timestamp: {current_row_rf['timestamp']}",
+                        text=f"Heatmap shoes rf, timestamp: {shoes_rf.loc[index_rf, 'timestamp']}",
                         showarrow=False,
                         xref="paper",
                         yref="paper",
@@ -2478,13 +2489,16 @@ class DashThread(threading.Thread):
             )
 
 
-            # Retourner les figures mises à jour et les indices
+            # Retourner les figures mises Ã  jour et les indices
             return (
                 html.Div([dcc.Graph(id='shoes', figure=fig)]),
-                1,
-                click_count,
-                shoes_lf['timestamp'].max()-shoes_lf['timestamp'].min()
+                slider,
+                step,
+                click_count + min_timestamp,
+                min_timestamp,
+                max_timestamp
             )
+
         @self.app.callback(
             Output('marker-list-mats', 'children'),
             [Input('dropdown-participant', 'value'),
