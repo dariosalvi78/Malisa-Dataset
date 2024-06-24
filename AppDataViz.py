@@ -2270,7 +2270,7 @@ class DashThread(threading.Thread):
                         heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
                         fig1 = go.Figure(data=[heatmap_floor1])
                         fig1.update_layout(
-                        title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec",
+                        title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                             width= 1200,
                             height= 300
                         )
@@ -2280,7 +2280,7 @@ class DashThread(threading.Thread):
                         heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
                         fig2 = go.Figure(data=[heatmap_floor2])
                         fig2.update_layout(
-                        title=f"Heatmap floor 2, time: {floor2.loc[index_floor2, 'timestamp']} sec",
+                        title=f"Heatmap floor 2, time: {round(floor2.loc[index_floor2, 'timestamp'],4)} sec",
                             width= 1200,
                             height= 300
                         )
@@ -2319,7 +2319,7 @@ class DashThread(threading.Thread):
                             heatmap_seat=go.Heatmap(z=seat[index_seat])
                             fig3=go.Figure(data=[heatmap_seat])
                             fig3.update_layout(
-                            title=f"Heatmap seat, time: {seats.loc[index_seat, 'timestamp']} sec",
+                            title=f"Heatmap seat, time: {round(seats.loc[index_seat, 'timestamp'],4)} sec",
                                 width= 500,
                                 height= 500
                             )
@@ -2329,7 +2329,7 @@ class DashThread(threading.Thread):
                             heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
                             fig1 = go.Figure(data=[heatmap_floor1])
                             fig1.update_layout(
-                            title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec",
+                            title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                                 width= 1200,
                                 height= 300
                             )
@@ -2337,7 +2337,7 @@ class DashThread(threading.Thread):
                             heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
                             fig2 = go.Figure(data=[heatmap_floor2])
                             fig2.update_layout(
-                            title=f"Heatmap floor 2, time: {floor2.loc[index_floor2, 'timestamp']} sec",
+                            title=f"Heatmap floor 2, time: {round(floor2.loc[index_floor2, 'timestamp'],4)} sec",
                                 width= 1200,
                                 height= 300
                             )
@@ -2374,7 +2374,7 @@ class DashThread(threading.Thread):
                                 heatmap_seat=go.Heatmap(z=seat[index_seat])
                                 fig3=go.Figure(data=[heatmap_seat])
                                 fig3.update_layout(
-                                title=f"Heatmap seat, time: {seats.loc[index_seat, 'timestamp']} sec",
+                                title=f"Heatmap seat, time: {round(seats.loc[index_seat, 'timestamp'],4)} sec",
                                     width= 500,
                                     height= 500
                                 )
@@ -2384,7 +2384,7 @@ class DashThread(threading.Thread):
                                 heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
                                 fig1 = go.Figure(data=[heatmap_floor1])
                                 fig1.update_layout(
-                                title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec",
+                                title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                                     width= 1200,
                                     height= 300
                                 )
@@ -2392,7 +2392,7 @@ class DashThread(threading.Thread):
                                 heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
                                 fig2 = go.Figure(data=[heatmap_floor2])
                                 fig2.update_layout(
-                                title=f"Heatmap floor 2, time: {floor2.loc[index_floor2, 'timestamp']} sec",
+                                title=f"Heatmap floor 2, time: {round(floor2.loc[index_floor2, 'timestamp'],4)} sec",
                                     width= 1200,
                                     height= 300
                                 )
@@ -2420,7 +2420,7 @@ class DashThread(threading.Thread):
                                 heatmap_seat=go.Heatmap(z=seat[index_seat])
                                 fig3=go.Figure(data=[heatmap_seat])
                                 fig3.update_layout(
-                                title=f"Heatmap seat, time: {seats.loc[index_seat, 'timestamp'] } sec",
+                                title=f"Heatmap seat, time: {round(seats.loc[index_seat, 'timestamp'],4) } sec",
                                     width= 500,
                                     height= 500
                                 )
@@ -2430,7 +2430,7 @@ class DashThread(threading.Thread):
                                 heatmap_floor1 = go.Heatmap(z=mat1[index_floor1])
                                 fig1 = go.Figure(data=[heatmap_floor1])
                                 fig1.update_layout(
-                                title=f"Heatmap floor 1, time: {floor1.loc[index_floor1, 'timestamp']} sec, {index_floor1}",
+                                title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                                     width= 1200,
                                     height= 300
                                 )
@@ -2684,7 +2684,7 @@ class DashThread(threading.Thread):
 
 
     def run(self):
-        self.app.run_server(debug=False,port=8074)
+        self.app.run_server(debug=False,port=8075)
 
 
 
@@ -2698,7 +2698,7 @@ class App:
         dash_thread.start()
 
         # Open Dash app in web browser
-        webbrowser.open("http://localhost:8074")
+        webbrowser.open("http://localhost:8075")
 
 
 if __name__ == "__main__":
