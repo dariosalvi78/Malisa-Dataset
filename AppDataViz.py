@@ -1398,7 +1398,7 @@ class DashThread(threading.Thread):
         def update_rot(participant, test,*vals):
 
             if participant is None or test is None :
-                return [],[],[],[],[],[],[],[]
+                return [],[],[],[],[],[],[],[],[],[],[],[]
 
             return_divs_rot = [html.Div(), html.Div(), html.Div(), html.Div(), html.Div(), html.Div()]
 
@@ -2684,7 +2684,7 @@ class DashThread(threading.Thread):
 
 
     def run(self):
-        self.app.run_server(debug=False,port=8075)
+        self.app.run_server(debug=False,port=8035)
 
 
 
@@ -2698,7 +2698,7 @@ class App:
         dash_thread.start()
 
         # Open Dash app in web browser
-        webbrowser.open("http://localhost:8075")
+        webbrowser.open("http://localhost:8035")
 
 
 if __name__ == "__main__":
