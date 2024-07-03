@@ -2272,7 +2272,28 @@ class DashThread(threading.Thread):
                         fig1.update_layout(
                         title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                             width= 1200,
-                            height= 300
+                            height= 300,
+                            annotations=[
+                                go.layout.Annotation(
+                                x=40,
+                                y=1.75,
+                                xref="x",
+                                yref="paper",
+                                text="←",
+                                showarrow=False,
+                                font=dict(size=75, color="red")
+                    ),
+                                go.layout.Annotation(
+                                    x=55,
+                                    y=1.4,
+                                    xref="x",
+                                    yref="paper",
+                                    text="Walking direction",
+                                    showarrow=False,
+                                    font=dict(size=25, color="red"),
+                                    align='center'
+                    )
+                ]
                         )
                         fig.append(fig1)
                         fig3_data=0
@@ -2282,7 +2303,18 @@ class DashThread(threading.Thread):
                         fig2.update_layout(
                         title=f"Heatmap floor 2, time: {round(floor2.loc[index_floor2, 'timestamp'],4)} sec",
                             width= 1200,
-                            height= 300
+                            height= 300,
+                             annotations=[
+                                go.layout.Annotation(
+                                x=40,
+                                y=1.75,
+                                xref="x",
+                                yref="paper",
+                                text="→",
+                                showarrow=False,
+                                font=dict(size=75, color="red")
+                    )
+                ]
                         )
                         fig.append(fig2)
                     else:
@@ -2331,7 +2363,28 @@ class DashThread(threading.Thread):
                             fig1.update_layout(
                             title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                                 width= 1200,
-                                height= 300
+                                height= 300,
+                                annotations=[
+                                go.layout.Annotation(
+                                x=40,
+                                y=1.75,
+                                xref="x",
+                                yref="paper",
+                                text="←",
+                                showarrow=False,
+                                font=dict(size=75, color="red")
+                    ),
+                                    go.layout.Annotation(
+                                    x=55,
+                                    y=1.4,
+                                    xref="x",
+                                    yref="paper",
+                                    text="Walking direction",
+                                    showarrow=False,
+                                    font=dict(size=25, color="red"),
+                                    align='center'
+                    )
+                ]
                             )
                             fig.append(fig1)
                             heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
@@ -2339,7 +2392,18 @@ class DashThread(threading.Thread):
                             fig2.update_layout(
                             title=f"Heatmap floor 2, time: {round(floor2.loc[index_floor2, 'timestamp'],4)} sec",
                                 width= 1200,
-                                height= 300
+                                height= 300,
+                                annotations=[
+                                go.layout.Annotation(
+                                x=40,
+                                y=1.75,
+                                xref="x",
+                                yref="paper",
+                                text="→",
+                                showarrow=False,
+                                font=dict(size=75, color="red")
+                    )
+                ]
                             )
                             fig.append(fig2)
 
@@ -2386,7 +2450,28 @@ class DashThread(threading.Thread):
                                 fig1.update_layout(
                                 title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                                     width= 1200,
-                                    height= 300
+                                    height= 300,
+                                annotations=[
+                                go.layout.Annotation(
+                                x=40,
+                                y=1.75,
+                                xref="x",
+                                yref="paper",
+                                text="←",
+                                showarrow=False,
+                                font=dict(size=75, color="red")
+                    ),
+                                    go.layout.Annotation(
+                                    x=55,
+                                    y=1.4,
+                                    xref="x",
+                                    yref="paper",
+                                    text="Walking direction",
+                                    showarrow=False,
+                                    font=dict(size=25, color="red"),
+                                    align='center'
+                    )
+                ]
                                 )
                                 fig.append(fig1)
                                 heatmap_floor2 = go.Heatmap(z=mat2[index_floor2])
@@ -2394,7 +2479,18 @@ class DashThread(threading.Thread):
                                 fig2.update_layout(
                                 title=f"Heatmap floor 2, time: {round(floor2.loc[index_floor2, 'timestamp'],4)} sec",
                                     width= 1200,
-                                    height= 300
+                                    height= 300,
+                                annotations=[
+                                go.layout.Annotation(
+                                x=40,
+                                y=1.75,
+                                xref="x",
+                                yref="paper",
+                                text="→",
+                                showarrow=False,
+                                font=dict(size=75, color="red")
+                    )
+                ]
                                 )
                                 fig.append(fig2)
 
@@ -2432,7 +2528,28 @@ class DashThread(threading.Thread):
                                 fig1.update_layout(
                                 title=f"Heatmap floor 1, time: {round(floor1.loc[index_floor1, 'timestamp'],4)} sec",
                                     width= 1200,
-                                    height= 300
+                                    height= 300,
+                                    annotations=[
+                                    go.layout.Annotation(
+                                    x=40,
+                                    y=1.75,
+                                    xref="x",
+                                    yref="paper",
+                                    text="←",
+                                    showarrow=False,
+                                    font=dict(size=75, color="red")
+                    ),
+                                    go.layout.Annotation(
+                                    x=55,
+                                    y=1.4,
+                                    xref="x",
+                                    yref="paper",
+                                    text="Walking direction",
+                                    showarrow=False,
+                                    font=dict(size=25, color="red"),
+                                    align='center'
+                    )
+                ]
                                 )
                                 fig.append(fig1)
                     # Return updated figures and indices
@@ -2684,7 +2801,7 @@ class DashThread(threading.Thread):
 
 
     def run(self):
-        self.app.run_server(debug=False,port=8035)
+        self.app.run_server(debug=False,port=8076)
 
 
 
@@ -2698,7 +2815,7 @@ class App:
         dash_thread.start()
 
         # Open Dash app in web browser
-        webbrowser.open("http://localhost:8035")
+        webbrowser.open("http://localhost:8076")
 
 
 if __name__ == "__main__":
